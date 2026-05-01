@@ -94,10 +94,73 @@ void insert_bst(BST* bst, Node* node_z) {
     }
 }
 
+Node* bst_root(BST* bst) {
+    return bst->root;
+}
+
+int bst_height(Node* n) {
+
+    if (n == NULL) return -1;
+
+    int height_left = bst_height(n->left_node);
+    int height_right = bst_height(n->right_node);
+
+    // Usar a logica de que a altura de 1 no é a altura do seu filho mais alto + 1
+
+    if (height_left > height_right) {
+        return 1 + height_left;
+    } else {
+        return 1 + height_right;
+    }
+}
+
 void destroy_bst(BST* bst) {
 
     if (bst) {
         destroy_node(bst->root);
         free(bst);
     }
+}
+
+void rec_pre_order_traversal(Node* t) {
+
+    if (t == NULL) return;
+    
+    // Visitar nó
+    printf("%d\n", t->key);
+    
+    // Visitar sub arvore da esquerda
+    rec_pre_order_traversal(t->left_node);
+
+    // Visitar sub arvore da direite
+    rec_pre_order_traversal(t->right_node);
+}
+
+void rec_in_order_traversal(Node* t) {
+
+    if (t == NULL) return;
+
+    // Visitar sub arvore da esquerda
+    rec_pre_order_traversal(t->left_node);
+
+    // Visitar nó
+    printf("%d\n", t->key);
+
+    // Visitar sub arvore da direite
+    rec_pre_order_traversal(t->right_node);
+}
+
+void rec_post_order_traversal(Node* t) {
+
+    if (t == NULL) return;
+
+    // Visitar sub arvore da esquerda
+    rec_pre_order_traversal(t->left_node);
+
+    
+    // Visitar sub arvore da direite
+    rec_pre_order_traversal(t->right_node);
+    
+    // Visitar nó
+    printf("%d\n", t->key);
 }

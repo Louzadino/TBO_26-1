@@ -1,0 +1,15 @@
+1. Qual a conclusão você pode obter pelo desvio padrão?
+    R: Podemos concluir que, dada uma entrada aleatória de N valores,
+    teremos um desvio padrão pequeno, o que demonstra um bom balanceamento para a bst, que é por natureza não balanceada. 
+
+2. Qual é a altura máxima e mínima de uma BST em função de N?
+    R: A altura máxima da BST ocorre quando ela está totalmente
+    desbalanceada. Ou seja, ele tende a uma lista encadeada, onde
+    todos os nós se encontra na sub árvore da direita, ordenadas
+    de forma crescente ou na sub árvore da esquerda, decrescente. 
+    Ou seja, a altura máxima é Hmax = N - 1
+
+    Já a altura mínima ocorre quando a BST está perfeitamente balanceada ou "quase completa". Logo, Hmin = logN (base 2).
+
+3. Considerando os limites da questão anterior, a média experimental da altura da BST é boa ou ruim? Por quê?
+    R: Ruim. Visto que, para uma árvore bem balanceada, teríamos para N=10⁶ uma média de altura 20, nossa média não é boa (obtemos no experimento uma média de 50,40).
